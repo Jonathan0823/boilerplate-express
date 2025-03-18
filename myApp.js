@@ -48,8 +48,9 @@ app.get("/:word/echo", (req, res) => {
 });
 
 const sendName = (req, res) => {
+  const string = req.method === "POST" ? `${req.body.first} ${req.body.last}` : `${req.query.first} ${req.query.last}`;
   res.json({
-    name: `${req.query.first} ${req.query.last}`
+    name: `${string}`
   });
 };
 
