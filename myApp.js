@@ -43,6 +43,13 @@ app.get("/:word/echo", (req, res) => {
   });
 });
 
+const sendName = (req, res) => {
+  res.json({
+    name: `${req.query.first} ${req.query.last}`
+  });
+};
+
+app.route("/name").get(sendName).post(sendName);
 
 
 
